@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
 
+  get '/customers/mypage' => 'public/customers#show'
+  get '/customers/information/edit' => 'public/customers#show'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

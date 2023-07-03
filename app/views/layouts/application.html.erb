@@ -15,11 +15,15 @@
     　<%= link_to "LOGO", root_path %>
 
       <% if customer_signed_in? %>
+
+      　ようこそ、<%= current_customer.last_name %>さん！
+
+
        <li>
-        "マイページ"
+        <%= link_to "マイページ", customers_mypage_path %>
        </li>
        <li>
-        "商品一覧"
+        <%= link_to "商品一覧", customers_mypage_path(current_customer.id) %>
        </li>
        <li>
         "カート"
