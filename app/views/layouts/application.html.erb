@@ -20,10 +20,10 @@
 
 
        <li>
-        <%= link_to "マイページ", customers_mypage_path %>
+        <%= link_to "マイページ", customers_mypage_path(current_customer.id) %>
        </li>
        <li>
-        <%= link_to "商品一覧", customers_mypage_path(current_customer.id) %>
+        <%= link_to "商品一覧",root_path %>
        </li>
        <li>
         "カート"
