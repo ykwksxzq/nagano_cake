@@ -70,5 +70,4 @@ class Public::RegistrationsController < Devise::RegistrationsController
     root_path
   end
 
-
 end

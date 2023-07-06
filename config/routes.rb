@@ -18,7 +18,12 @@ Rails.application.routes.draw do
   patch '/customers/information' => 'public/customers#update'
 
   get '/customers/check' => 'public/customers#check'
-  patch 'customers/withdraw' => 'public/customers#withdraw'
+  patch '/customers/withdraw' => 'public/customers#withdraw'
+
+  get '/admin/items/new' => 'admin/items#new'
+  post '/admin/items' => 'admin/items#create'
+  get '/admin/items/:id' => 'admin/items#show'
+  get '/admin/items' => 'admin/items#index'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
