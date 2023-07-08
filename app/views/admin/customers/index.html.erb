@@ -1,0 +1,15 @@
+<h2>会員一覧</h2>
+
+<% @customers.each do |customer| %>
+<div>
+  会員ID <%= customer.id %>
+  氏名
+  <%= link_to admin_customer_path(customer.id) do %>
+  <%= customer.last_name %><%= customer.first_name %><% end %>
+  メールアドレス　<%= customer.email %>
+  ステータス　<%= customer.is_deleted %>
+</div>
+
+<% end %>
+
+<%= paginate @customers %>
