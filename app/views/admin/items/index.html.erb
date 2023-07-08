@@ -1,1 +1,11 @@
 管理者用商品一覧ページ
+
+<% @items.each do |item| %>
+  <div>
+    商品ID  <%= item.id %>
+    商品名　<%= link_to item.name, admin_item_path(item.id) %>
+    税込価格 <%= item.price %>
+    販売ステータス
+  </div>
+
+<% end %>

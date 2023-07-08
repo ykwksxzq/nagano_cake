@@ -1,2 +1,11 @@
-管理者　商品詳細
+商品詳細
 
+  <div>
+    <%= image_tag @item.image, size: "300x300" %>
+    <p>商品名<%= @item.name %></p>
+    <p>商品説明<%= @item.introduction %></p>
+    <p>税込価格（税抜価格）：<%= @item.price %></p>
+    <p>販売ステータス</p>
+  </div>
+
+編集する

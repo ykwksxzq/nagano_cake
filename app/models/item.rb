@@ -1,6 +1,11 @@
 class Item < ApplicationRecord
 
   has_one_attached :image
-  belongs_to :admin
+
+  with_options presence: true do
+   validates :name
+   validates :introduction
+   validates :price
+ end
 
 end

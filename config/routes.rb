@@ -20,11 +20,10 @@ Rails.application.routes.draw do
   get '/customers/check' => 'public/customers#check'
   patch '/customers/withdraw' => 'public/customers#withdraw'
 
-  get '/admin/items/new' => 'admin/items#new'
-  post '/admin/items' => 'admin/items#create'
-  get '/admin/items/:id' => 'admin/items#show'
-  get '/admin/items' => 'admin/items#index'
 
+  namespace :admin do
+    resources :items
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
