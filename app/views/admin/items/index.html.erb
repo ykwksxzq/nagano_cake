@@ -1,4 +1,6 @@
-管理者用商品一覧ページ
+<h2>商品一覧</h2>
+
+<%= link_to "+", new_admin_item_path %>
 
 <% @items.each do |item| %>
   <div>
@@ -9,3 +11,5 @@
   </div>
 
 <% end %>
+
+<%= paginate @items %>
