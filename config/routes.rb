@@ -15,19 +15,20 @@ Rails.application.routes.draw do
 
   scope module: 'public' do
   resources :items, only: [:index, :show]
+  resources :cart_items, only: [:index, :create, :update, :destroy]
   end
 
   get '/customers/mypage' => 'public/customers#show'
-  get '/customers/information/edit' => 'public/customers#edit'
+  get '/customers/information/edit' => 'public/custocmers#edit'
   patch '/customers/information' => 'public/customers#update'
 
   get '/customers/check' => 'public/customers#check'
   patch '/customers/withdraw' => 'public/customers#withdraw'
 
-
   namespace :admin do
     resources :items, :customers
   end
+
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
