@@ -1,21 +1,17 @@
 class Item < ApplicationRecord
 
   has_one_attached :image
-  
+
   has_many :cart_items, dependent: :destroy
 
   with_options presence: true do
    validates :name
    validates :introduction
    validates :price
- end
+  end
 
- def with_tax_price #税込
+  def with_tax_price #税込表示
     (price * 1.1).floor
- end
-
-  def add_tax_price
-    (self.price * 1.10).round
   end
 
   def get_image(width,height)

@@ -3,7 +3,7 @@
     <%= image_tag @item.get_image(200,200) %>
     <p>商品名<%= @item.name %></p>
     <p>商品説明<%= @item.introduction %></p>
-    <p>税込価格：<%= @item.add_tax_price.to_s(:dalimited) %></p>
+    <p>税込価格：<%= @item.with_tax_price %></p>
 
     <%= form_with model: @cart_item, url:cart_items_path, method: :post do |f| %>
     <% if customer_signed_in? %>

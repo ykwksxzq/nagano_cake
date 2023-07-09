@@ -6,7 +6,7 @@
     <%= image_tag item.get_image(100,100) %>
     <% end %>
     <p>商品名：<%= item.name %></p>
-    <P>税込価格 <%= item.add_tax_price.to_s(:dalimited) %></p>
+    <P>税込価格 <%= item.with_tax_price.to_s(:delimited) %></p>
   </div>
 
 <% end %>
