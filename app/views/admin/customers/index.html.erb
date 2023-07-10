@@ -7,7 +7,13 @@
   <%= link_to admin_customer_path(customer.id) do %>
   <%= customer.last_name %><%= customer.first_name %><% end %>
   メールアドレス　<%= customer.email %>
-  ステータス　<%= customer.is_deleted %>
+  ステータス
+  <% if customer.is_deleted %>
+  退会
+  <% else %>
+  有効
+  <% end %>
+
 </div>
 
 <% end %>
