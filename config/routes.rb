@@ -12,11 +12,14 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
+  
+  delete '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
   scope module: 'public' do
   resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :create, :update, :destroy]
+  resources :cart_items, only: [:index, :create, :update, :destroy,]
   end
+
 
   get '/customers/mypage' => 'public/customers#show'
   get '/customers/information/edit' => 'public/custocmers#edit'
