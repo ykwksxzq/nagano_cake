@@ -33,6 +33,12 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path, notice: 'カートが空になりました。'
   end
 
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(amount: params[:amount].to_i)
+    redirect_to cart_items_path
+  end
+
 
   private
 
