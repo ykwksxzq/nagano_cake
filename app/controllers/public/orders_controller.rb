@@ -15,6 +15,7 @@ class Public::OrdersController < ApplicationController
     @order.shipping_address = current_customer.address
     @order.shipping_name = current_customer.last_name + current_customer.first_name
     end
+    @order.shipping_cost = 800
   end
 
   def create
