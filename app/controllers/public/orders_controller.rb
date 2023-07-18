@@ -38,6 +38,14 @@ class Public::OrdersController < ApplicationController
   def complete
   end
 
+  def index
+    @order = current_customer.orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
 
 
   private
@@ -46,5 +54,7 @@ class Public::OrdersController < ApplicationController
     params.require(:order).permit(:customer_id, :shipping_postal_code, :shipping_address, :shipping_name, :shipping_cost, :total_payment, :payment_method)
   end
 
-
+  def order_detail_params
+    params.require(:ordar_detail).permit(:order_id, :item_id, :purchase_price, :order_amount)
+  end
 end

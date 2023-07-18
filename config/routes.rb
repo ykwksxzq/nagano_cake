@@ -15,15 +15,15 @@ Rails.application.routes.draw do
 
   delete '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
+  post '/orders/confirm' => 'public/orders#confirm'
+  get '/orders/complete' => 'public/orders#complete'
+
+
   scope module: 'public' do
   resources :items, only: [:index, :show]
   resources :cart_items, only: [:index, :create, :update, :destroy]
   resources :orders, only: [:new, :index, :show, :create]
   end
-
-  post 'orders/confirm' => 'public/orders#confirm'
-  get 'orders/complete' => 'public/orders#complete'
-
 
   get '/customers/mypage' => 'public/customers#show'
   get '/customers/information/edit' => 'public/custocmers#edit'
