@@ -27,6 +27,7 @@
 <%= order_detail.item.name %>
 単価<%= order_detail.purchase_price %>
 個数<%= order_detail.order_amount %>
-小計<%= order_detail.purchase_price * order_detail.order_amount %>
+小計<% @subtotal = order_detail.purchase_price  * order_detail.order_amount %>
+<%= @subtotal.to_s(:delimited) %>
 
 <% end %>

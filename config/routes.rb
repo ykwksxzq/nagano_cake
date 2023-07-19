@@ -19,12 +19,6 @@ Rails.application.routes.draw do
   get '/orders/complete' => 'public/orders#complete'
 
 
-  scope module: 'public' do
-  resources :items, only: [:index, :show]
-  resources :cart_items, only: [:index, :create, :update, :destroy]
-  resources :orders, only: [:new, :index, :show, :create]
-  end
-
   get '/customers/mypage' => 'public/customers#show'
   get '/customers/information/edit' => 'public/custocmers#edit'
   patch '/customers/information' => 'public/customers#update'
@@ -32,11 +26,16 @@ Rails.application.routes.draw do
   get '/customers/check' => 'public/customers#check'
   patch '/customers/withdraw' => 'public/customers#withdraw'
 
-  namespace :admin do
-    resources :items, :customers
+  scope module: 'public' do
+  resources :items, only: [:index, :show]
+  resources :cart_items, only: [:index, :create, :update, :destroy]
+  resources :orders, only: [:new, :index, :show, :create]
   end
 
-
+  namespace :admin do
+    resources :items, :customers
+    resources :orders, only:[:show]
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
