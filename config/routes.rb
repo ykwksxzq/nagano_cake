@@ -33,8 +33,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, :customers
-    resources :orders, only:[:show]
+   resources :items, :customers
+   resources :orders, only:[:show]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
