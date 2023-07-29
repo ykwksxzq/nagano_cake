@@ -1,14 +1,28 @@
 
-<h2>商品編集</h2>
+<div class="container">
+<div class="row">
+<div class="col-md-10 col-sm-10 mx-2 mx-sm-auto align-text-center rounded px-0 my-5">
+
+<h4>商品編集</h4>
 
 <%= form_with model: @item, url:admin_item_path, method: :patch do |f| %>
 
- 商品画像 <%= f.file_field :image, accept: "image/*" %></br>
- 商品名 <%= f.text_field :name %></br>
- 商品説明 <%= f.text_area :introduction %></br>
- 税抜価格 <%= f.text_field :price %></br>
+ <h6>商品画像</h6>
+ <%= f.file_field :image, accept: "image/*" %>
 
- 販売ステータス<br>
+ <h6>商品名</h6>
+ <%= f.text_field :name %>
+ <p>商品説明</p>
+ <%= f.text_area :introduction %>
+ <p>税抜価格</p>
+ <%= f.text_field :price %>円
 
-  <%= f.submit '変更を保存' %>
-<% end %>
+ </br>
+ </br>
+
+ <%= f.submit '変更を保存', class: "btn btn-lg btn-success" %>
+ <% end %>
+
+</div>
+</div>
+</div>
