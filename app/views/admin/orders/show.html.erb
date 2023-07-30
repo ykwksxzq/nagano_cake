@@ -1,31 +1,78 @@
+<div class="container">
 
 <p>注文履歴詳細</p>
 
-購入者<%= @order.customer.last_name %> <%= @order.customer.first_name %></br>
-注文日<%= @order.created_at.strftime('%Y/%m/%d') %></br>
-配送先<%= @order.shipping_postal_code %> <%= @order.shipping_address %></br>
-      <%= @order.shipping_name %></br>
 
-支払方法<%= @order.payment_method_i18n %></br>
+<div class="row mx-auto">
 
+<div class="col-lg-2"><strong>購入者</strong></div>
+<div class="col-lg-10"><%= @order.customer.last_name %> <%= @order.customer.first_name %></div>
 
-商品名
-<% @order.order_details.each do |order_detail| %>
-<%= order_detail.item.name %></br>
-単価(税込)<%= order_detail.purchase_price.to_s(:delimited)  %></br>
-数量<%= order_detail.order_amount %></br>
-小計<% @subtotal = order_detail.purchase_price  * order_detail.order_amount %>
-<%= @subtotal.to_s(:delimited) %>
-<% end %>
+<div class="col-lg-2"><strong>注文日</strong></div>
+<div class="col-lg-10"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
 
+<div class="col-lg-2"><strong>配送先</strong></div>
+<div class="col-lg-10">
+<%= @order.shipping_postal_code %> <%= @order.shipping_address %></br>
+<%= @order.shipping_name %></div>
+
+<div class="col-lg-2"><strong>支払方法</strong></div>
+<div class="col-lg-10">
+<%= @order.payment_method_i18n %></div>
+</div>
 </br>
 
-商品合計
-<% @sum = 0 %>
-<% @order.order_details.each do |order_detail| %>
-<% @sum += order_detail.purchase_price * order_detail.order_amount %>
-<% end %>
-<%= @sum.to_s(:delimited)  %>
-</br>
-配送料 <%= @order.shipping_cost %>
-請求金額合計<%= @order.total_payment.to_s(:delimited) %>
+<div class="row mx-auto">
+  <div class="col-8 col-sm-6">
+
+  <table class="table">
+   <thead class="thead-light">
+    <tr>
+      <th scope-"col">商品名</th>
+      <th scope-"col">単価(税込)</th>
+      <th scope-"col">数量</th>
+      <th scope-"col">小計</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order.order_details.each do |order_detail| %>
+    <tr>
+      <td>
+      　<%= order_detail.item.name %></br>
+      </td>
+      <td><%= order_detail.purchase_price.to_s(:delimited)  %></br></td>
+      <td><%= order_detail.order_amount %></br></td>
+      <td>
+          <% @subtotal = order_detail.purchase_price  * order_detail.order_amount %>
+          <%= @subtotal.to_s(:delimited) %>
+      </td>
+     <% end %>
+    </tr>
+  </tbody>
+  </table>
+  </div>
+
+　<div class="col-4 col-sm-6">
+ 　<p class="my-4"><strong>商品合計</strong>
+ 　<span style="margin-left:50px;">
+    <% @sum = 0 %>
+    <% @order.order_details.each do |order_detail| %>
+    <% @sum += order_detail.purchase_price * order_detail.order_amount %>
+    <% end %>
+    <%= @sum.to_s(:delimited)  %>
+   </span>
+   </p>
+
+   <p class="my-4"><strong>配送料</strong>
+ 　<span style="margin-left:55px;">
+ 　  <%= @order.shipping_cost %>
+   </span></p>
+
+   <p class="my-4"><strong>請求金額合計</strong>
+ 　<span style="margin-left:15px;">
+    <%= @order.total_payment.to_s(:delimited) %>
+   </span></p>
+   </div>
+ </div>
+</div>

@@ -1,14 +1,28 @@
-商品一覧
+<div class="container">
 
-<% @items.each do |item| %>
-  <div>
+
+<h5 class="title">商品一覧</h5>
+
+<div class="row">
+ <div class="card-group">
+　<% @items.each do |item| %>
+
+  <div class="card">
     <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image(100,100) %>
+    <%= image_tag item.get_image(100,100), class: "card-img-top" %>
     <% end %>
-    <p>商品名：<%= item.name %></p>
-    <P>税込価格 <%= item.with_tax_price.to_s(:delimited) %></p>
+
+  <div class="card-body">
+  <p class="card-text">商品名：<%= item.name %></p>
+  <p class="card-text">税込価格 <%= item.with_tax_price.to_s(:delimited) %></p>
   </div>
+ </div>
 
 <% end %>
 
+</div>
 <%= paginate @items %>
+
+
+</div>
+</div>

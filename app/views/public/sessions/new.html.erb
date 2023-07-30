@@ -1,6 +1,10 @@
-<h2>ログイン</h2>
+<div class="container">
+ <div class="row">
+<div class="col-md-10 col-sm-10 mx-2 mx-sm-auto align-text-center rounded px-0 my-5">
 
-会員の方はこちらからログイン
+<h4>ログイン</h4>
+
+<p>会員の方はこちらからログイン</p>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -14,9 +18,14 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "btn btn-primary"  %>
   </div>
 <% end %>
 
+</br>
 <P>会員登録がお済みでない方</P>
 <%= link_to "こちら", new_customer_registration_path %>　から新規登録を行なってください。
+
+</div>
+</div>
+</div>

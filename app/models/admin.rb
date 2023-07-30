@@ -4,9 +4,6 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :items, dependent: :destroy
-  has_many :customers, dependent: :destroy
-
   OrderDetail.all.sum(:order_amount)
 
 end
