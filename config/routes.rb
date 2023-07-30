@@ -13,18 +13,17 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
   get '/admin' => 'admin/homes#top'
 
-  delete '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
-
-  post '/orders/confirm' => 'public/orders#confirm'
-  get '/orders/complete' => 'public/orders#complete'
-
-
   get '/customers/mypage' => 'public/customers#show'
-  get '/customers/information/edit' => 'public/custocmers#edit'
+  get '/customers/information/edit' => 'public/customers#edit'
   patch '/customers/information' => 'public/customers#update'
 
   get '/customers/check' => 'public/customers#check'
   patch '/customers/withdraw' => 'public/customers#withdraw'
+
+  delete '/cart_items/destroy_all' => 'public/cart_items#destroy_all'
+
+  post '/orders/confirm' => 'public/orders#confirm'
+  get '/orders/complete' => 'public/orders#complete'
 
   scope module: 'public' do
   resources :items, only: [:index, :show]
