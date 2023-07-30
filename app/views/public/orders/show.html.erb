@@ -35,12 +35,12 @@
         <% @order.order_details.each do |order_detail| %>
         <% @sum += order_detail.purchase_price * order_detail.order_amount %>
         <% end %>
-        <%= @sum %>
+        <%= @sum.to_s(:delimited)  %>
    </td>
   </tr>
   <tr>
    <th scope="row">配送料</th>
-   <td><%= @order.shipping_cost %></td>
+   <td><%= @order.shipping_cost.to_s(:delimited)  %></td>
   </tr>
   <tr>
    <th scope="row"><strong>請求金額</strong></th>
